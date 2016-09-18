@@ -39,8 +39,8 @@
 <p>Socket.IO已经具有众多强大功能的模块和扩展API，如（session.socket.io)（http session中间件，进行session相关操作）、socket.io-cookie（cookie解析中间件）、session-web-sockets（以安全的方式传递Session）、socket-logger（JSON格式的记录日志工具）、websocket.MQ（可靠的消息队列）、socket.io-mongo（使用MongoDB的适配器）、socket.io-redis（Redis的适配器）、socket.io-parser（服务端和客户端通讯的默认协议实现模块）等。</p>
 <blockquote>
 <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2></blockquote>
-<p>在开发IO密集型应用的时候,完全可以已Socket.io为主体,将Socket.io的默认engine.io更换为uws,因为uws本身类库就支持socket.io扩展。</p>
-<h3 id="Use-the-new-wsEngine-‘uws’-option-like-so"><a href="#Use-the-new-wsEngine-‘uws’-option-like-so" class="headerlink" title="Use the new wsEngine: ‘uws’ option like so:"></a>Use the new wsEngine: ‘uws’ option like so:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var io = require(<span class="string">'socket.io'</span>)(80, &#123; wsEngine: <span class="string">'uws'</span> &#125;);</div></pre></td></tr></table></figure>
+<p>在开发IO密集型应用的时候,完全可以以Socket.io为主体,将Socket.io的默认engine.io更换为uws,因为uws本身类库就支持socket.io扩展。</p>
+<h3 id="Use-the-new-wsEngine-‘uws’-option-like-so"><a href="#Use-the-new-wsEngine-‘uws’-option-like-so" class="headerlink" title="Use the new wsEngine: ‘uws’ option like so:"></a>Use the new wsEngine: ‘uws’ option like so:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var io = require(<span class="string">'socket.io'</span>)(80, &#123; wsEngine: <span class="string">'uws'</span> &#125;);</div></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><ul>
 <li><a href="https://github.com/uWebSockets" title="uWebSockets" target="_blank" rel="external">uWebSockets</a></li>
