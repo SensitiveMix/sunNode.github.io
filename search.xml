@@ -4,9 +4,50 @@
   
     
     <entry>
-      <title><![CDATA[QQ表情插件]]></title>
-      <url>http://sunnode.github.io/2016/09/17/QQ%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>##nodejs聊天室，浅析。</p>
+      <title><![CDATA[几种常用的框架简介]]></title>
+      <url>http://sunnode.github.io/2016/09/19/socket-framework/</url>
+      <content type="html"><![CDATA[<h1 id="socket-io-WebSocket-UwebSockets"><a href="#socket-io-WebSocket-UwebSockets" class="headerlink" title="socket.io,WebSocket,UwebSockets"></a>socket.io,WebSocket,UwebSockets</h1><h2 id="三种socket框架简介"><a href="#三种socket框架简介" class="headerlink" title="三种socket框架简介"></a>三种socket框架简介</h2><blockquote>
+<p> UwebSockets 简介</p>
+</blockquote>
+<p>  µWebSockets简称µWS，是一个超轻量级的、高效的、可扩展的WebSocket服务器实现，基于Node.js开发，主要特征是易于使用、完全异步的面向对象的接口，并且可以扩展到数百万的连接，与同类的产品相比，其内存占用只有竞品的几分之一，采用zlib/libpng许可证（非常宽松的许可证，适合商业应用）。</p>
+<ul>
+<li><h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>支持Linux、OSX、Windows</li>
+<li>内建了负载平衡和支持多核</li>
+<li>支持SSL/TLS安全访问，且可以与外部HTTPS服务器相集成</li>
+<li>内建Permessage-deflate（读取压缩消息）</li>
+<li>Node.js绑定对外暴露WS接口</li>
+<li>可选择作为如Socket.IO、Primus或SocketCluster库的ws引擎</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>  websocket 简介</p>
+</blockquote>
+<p>WebSocket是html5规范新引入的功能，用于解决浏览器与后台服务器双向通讯的问题，使用WebSocket技术，后台可以随时向前端推送消息。</p>
+<ul>
+<li><h3 id="主要特性-1"><a href="#主要特性-1" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>简单轮询</li>
+<li>长轮询</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>  socket.io 简介</p>
+</blockquote>
+<p>Socket.io是一个完全由JavaScript实现，基于Node.js、支持WebSocket的协议用于实时通信、跨平台的开源框架，它包括了客户端的JavaScript和服务器端的Node.js.</p>
+<ul>
+<li><h3 id="主要特性-2"><a href="#主要特性-2" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>Real-time</li>
+<li>Event-based communication</li>
+<li>Node.js</li>
+<li>Open source</li>
+<li>WebSockets</li>
+<li>Binary streaming</li>
+<li>No internet dependency</li>
+</ul>
+</li>
+</ul>
 ]]></content>
     </entry>
     
@@ -22,6 +63,13 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[QQ表情插件]]></title>
+      <url>http://sunnode.github.io/2016/09/17/QQ%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>##nodejs聊天室，浅析。</p>
 ]]></content>
     </entry>
     
