@@ -4,50 +4,59 @@
   
     
     <entry>
-      <title><![CDATA[几种常用的框架简介]]></title>
+      <title><![CDATA[Socket FrameWork]]></title>
       <url>http://sunnode.github.io/2016/09/19/socket-framework/</url>
-      <content type="html"><![CDATA[<h1 id="socket-io-WebSocket-UwebSockets"><a href="#socket-io-WebSocket-UwebSockets" class="headerlink" title="socket.io,WebSocket,UwebSockets"></a>socket.io,WebSocket,UwebSockets</h1><h2 id="三种socket框架简介"><a href="#三种socket框架简介" class="headerlink" title="三种socket框架简介"></a>三种socket框架简介</h2><blockquote>
-<p> UwebSockets 简介</p>
-</blockquote>
+      <content type="html"><![CDATA[<h1 id="Socket-io-WebSocket-UwebSockets"><a href="#Socket-io-WebSocket-UwebSockets" class="headerlink" title="Socket.io,WebSocket,UwebSockets"></a>Socket.io,WebSocket,UwebSockets</h1><h2 id="三种socket框架简介"><a href="#三种socket框架简介" class="headerlink" title="三种socket框架简介"></a>三种socket框架简介</h2><blockquote>
+<h2 id="UwebSockets-简介"><a href="#UwebSockets-简介" class="headerlink" title="UwebSockets 简介"></a>UwebSockets 简介</h2></blockquote>
 <p>  µWebSockets简称µWS，是一个超轻量级的、高效的、可扩展的WebSocket服务器实现，基于Node.js开发，主要特征是易于使用、完全异步的面向对象的接口，并且可以扩展到数百万的连接，与同类的产品相比，其内存占用只有竞品的几分之一，采用zlib/libpng许可证（非常宽松的许可证，适合商业应用）。</p>
-<ul>
-<li><h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
-<li>支持Linux、OSX、Windows</li>
-<li>内建了负载平衡和支持多核</li>
-<li>支持SSL/TLS安全访问，且可以与外部HTTPS服务器相集成</li>
-<li>内建Permessage-deflate（读取压缩消息）</li>
-<li>Node.js绑定对外暴露WS接口</li>
-<li>可选择作为如Socket.IO、Primus或SocketCluster库的ws引擎</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>  websocket 简介</p>
-</blockquote>
+<h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><pre><code>+ 支持Linux、OSX、Windows
++ 内建了负载平衡和支持多核
++ 支持SSL/TLS安全访问，且可以与外部HTTPS服务器相集成
++ 内建Permessage-deflate（读取压缩消息）
++ Node.js绑定对外暴露WS接口
++ 可选择作为如Socket.IO、Primus或SocketCluster库的ws引擎
+</code></pre><blockquote>
+<h2 id="websocket-简介"><a href="#websocket-简介" class="headerlink" title="websocket 简介"></a>websocket 简介</h2></blockquote>
 <p>WebSocket是html5规范新引入的功能，用于解决浏览器与后台服务器双向通讯的问题，使用WebSocket技术，后台可以随时向前端推送消息。</p>
-<ul>
-<li><h3 id="主要特性-1"><a href="#主要特性-1" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
-<li>简单轮询</li>
-<li>长轮询</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>  socket.io 简介</p>
-</blockquote>
+<h3 id="主要特性-1"><a href="#主要特性-1" class="headerlink" title="主要特性"></a>主要特性</h3><pre><code>+ 简单轮询
++ 长轮询
+</code></pre><blockquote>
+<h2 id="socket-io-简介"><a href="#socket-io-简介" class="headerlink" title="socket.io 简介"></a>socket.io 简介</h2></blockquote>
 <p>Socket.io是一个完全由JavaScript实现，基于Node.js、支持WebSocket的协议用于实时通信、跨平台的开源框架，它包括了客户端的JavaScript和服务器端的Node.js.</p>
-<ul>
-<li><h3 id="主要特性-2"><a href="#主要特性-2" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
-<li>Real-time</li>
-<li>Event-based communication</li>
-<li>Node.js</li>
-<li>Open source</li>
-<li>WebSockets</li>
-<li>Binary streaming</li>
-<li>No internet dependency</li>
+<h3 id="主要特性-2"><a href="#主要特性-2" class="headerlink" title="主要特性"></a>主要特性</h3><pre><code>+ 实时通信
++ 基于事件
++ 基于Node.js
++ 开源框架
++ 针对于webSockets的扩展
++ 二进制流
++ 没有互联网的依赖
+</code></pre><blockquote>
+<h2 id="Socket-io-VS-uWebSocket"><a href="#Socket-io-VS-uWebSocket" class="headerlink" title="Socket.io VS uWebSocket"></a>Socket.io VS uWebSocket</h2></blockquote>
+<p>uWebSocket较Socket.io来说生态圈还不是很完善,不是稳定版本。相对较优的方面在于它的轻量级,高度可扩展型框架。<br><img src="../../../images/compare-1.png" alt="比较示意图"><br>下图显示过去一段时间这两种框架热度:<br><img src="../../../images/compare-2.png" alt="比较示意图"></p>
+<blockquote>
+<h2 id="socket-io-VS-websocket-对比"><a href="#socket-io-VS-websocket-对比" class="headerlink" title="socket.io VS websocket 对比"></a>socket.io VS websocket 对比</h2></blockquote>
+<p>WebSocket是HTML5的一种新通信协议，它实现了浏览器与服务器之间的双向通讯。而Socket.IO是一个完全由JavaScript实现、基于Node.js、支持WebSocket的协议用于实时通信、跨平台的开源框架，它包括了客户端的JavaScript和服务器端的Node.js。Socket.IO除了支持WebSocket通讯协议外，还支持许多种轮询（Polling）机制以及其它实时通信方式，并封装成了通用的接口，并且在服务端实现了这些实时机制的相应代码。Socket.IO实现的Polling通信机制包括Adobe Flash Socket、AJAX长轮询、AJAX multipart streaming、持久Iframe、JSONP轮询等。Socket.IO能够根据浏览器对通讯机制的支持情况自动地选择最佳的方式来实现网络实时应用。当前，Socket.IO最新版本是于2015年1月19日发布的1.3.0版本，该版本增强了稳定性和提高了性能，并修复了大量Bug。</p>
+<p>Socket.IO已经具有众多强大功能的模块和扩展API，如（session.socket.io)（http session中间件，进行session相关操作）、socket.io-cookie（cookie解析中间件）、session-web-sockets（以安全的方式传递Session）、socket-logger（JSON格式的记录日志工具）、websocket.MQ（可靠的消息队列）、socket.io-mongo（使用MongoDB的适配器）、socket.io-redis（Redis的适配器）、socket.io-parser（服务端和客户端通讯的默认协议实现模块）等。</p>
+<blockquote>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2></blockquote>
+<p>在开发IO密集型应用的时候,完全可以已Socket.io为主体,将Socket.io的默认engine.io更换为uws,因为uws本身类库就支持socket.io扩展。</p>
+<h3 id="Use-the-new-wsEngine-‘uws’-option-like-so"><a href="#Use-the-new-wsEngine-‘uws’-option-like-so" class="headerlink" title="Use the new wsEngine: ‘uws’ option like so:"></a>Use the new wsEngine: ‘uws’ option like so:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var io = require(<span class="string">'socket.io'</span>)(80, &#123; wsEngine: <span class="string">'uws'</span> &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><ul>
+<li><a href="https://github.com/uWebSockets" title="uWebSockets" target="_blank" rel="external">uWebSockets</a></li>
+<li><a href="https://github.com/socketCluster" title="socketCluster" target="_blank" rel="external">socketCluster</a></li>
+<li><a href="https://github.com/socketio/socket.io" title="socket.io" target="_blank" rel="external">socket.io</a></li>
+<li><a href="https://github.com/gorilla/websocket" title="websocket" target="_blank" rel="external">websocket</a></li>
+<li><a href="https://github.com/M6Web/websocket-bench" title="websocket-bench" target="_blank" rel="external">websocket-bench</a></li>
 </ul>
-</li>
-</ul>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[QQ表情插件]]></title>
+      <url>http://sunnode.github.io/2016/09/17/QQ%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>##nodejs聊天室，浅析。</p>
 ]]></content>
     </entry>
     
@@ -63,13 +72,6 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[QQ表情插件]]></title>
-      <url>http://sunnode.github.io/2016/09/17/QQ%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>##nodejs聊天室，浅析。</p>
 ]]></content>
     </entry>
     
