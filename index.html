@@ -281,6 +281,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/22/QQ表情插件/" itemprop="url">
+                  QQ表情插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T23:40:36+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/QQ表情插件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/QQ表情插件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          &nbsp; | &nbsp;
+          <span id="/2016/09/22/QQ表情插件/"class="leancloud_visitors" data-flag-title="QQ表情插件">
+                   &nbsp;阅读次数
+                  </span>
+          
+
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##nodejs聊天室，浅析。</p>
+<h2 id="经典qq表情插件"><a href="#经典qq表情插件" class="headerlink" title="经典qq表情插件"></a>经典qq表情插件</h2><blockquote>
+<p>（html+nodejs应用）</p>
+<h3 id="由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法："><a href="#由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：" class="headerlink" title="由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法："></a>由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：</h3><p>HTML：</p>
+<ul>
+<li>首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery-1.7.2.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>然后在body中加入以下html代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"show"</span>&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=<span class="string">"comment"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"com_form"</span>&gt;</div><div class="line">        &lt;textarea class=<span class="string">"input"</span> id=<span class="string">"saytext"</span> name=<span class="string">"saytext"</span>&gt;&lt;/textarea&gt;</div><div class="line">        &lt;p&gt;&lt;span class=<span class="string">"emotion"</span>&gt;表情&lt;/span&gt;&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">"sub_btn"</span> value=<span class="string">"提交"</span>&gt;&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>CSS：<br>我们用CSS来美化页面，关键是表情按钮图片span.emotion的鼠标滑上与移开效果，以及调用表情插件后，显示的表情.qqFace面板效果，请看代码:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.comment&#123;width:680px; margin:20px auto; position:relative&#125;</div><div class="line">.comment h3&#123;height:28px; line-height:28px&#125;</div><div class="line">.com_form&#123;width:100%; position:relative&#125;</div><div class="line">.input&#123;width:99%; height:60px; border:1px solid <span class="comment">#ccc&#125;</span></div><div class="line">.com_form p&#123;height:28px; line-height:28px; position:relative&#125;</div><div class="line">span.emotion&#123;width:42px; height:20px; background:url(icon.gif) no-repeat 2px 2px;</div><div class="line">padding-left:20px; cursor:pointer&#125;</div><div class="line">span.emotion:hover&#123;background-position:2px -28px&#125;</div><div class="line">.qqFace&#123;margin-top:4px;background:<span class="comment">#fff;padding:2px;border:1px #dfe6f6 solid;&#125;</span></div><div class="line">.qqFace table td&#123;padding:0px;&#125;</div><div class="line">.qqFace table td img&#123;cursor:pointer;border:1px <span class="comment">#fff solid;&#125;</span></div><div class="line">.qqFace table td img:hover&#123;border:1px <span class="comment">#0066cc solid;&#125;</span></div><div class="line"><span class="comment">#show&#123;width:680px; margin:20px auto&#125;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>jquery:<br>当我们点击页面输入框下方那个笑脸时，触发调用qqface表情插件，简单几行就搞定。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line"></div><div class="line">        assign:<span class="string">'saytext'</span>, //给输入框赋值</div><div class="line">        path:<span class="string">'face/'</span>    //表情图片存放的路径</div><div class="line">    &#125;);</div><div class="line">    ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>当选择表情图片后，输入框中会插入一段如[em_5]之类的代码，代表插入的表情图片，实际应用中，点提交按钮后应该将这段表情代码连同其他内容插入到数据表中。而在页面显示的时候，我们应该将表情代码替换成真正的图片显示在页面上。下面的代码是插入表情图片后，点击提交按钮，使用javascript自定义函数将表情代码替换并显示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    ...</div><div class="line">    $(<span class="string">".sub_btn"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        var str = $(<span class="string">"#saytext"</span>).val();</div><div class="line">        $(<span class="string">"#show"</span>).html(replace_em(str));</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="keyword">function</span> replace_em(str)&#123;</div><div class="line">    str = str.replace(/\&lt;/g,<span class="string">'&lt;；'</span>);</div><div class="line">    str = str.replace(/\&gt;/g,<span class="string">'&gt;；'</span>);</div><div class="line">    str = str.replace(/\n/g,<span class="string">'&lt;；br/&gt;；'</span>);</div><div class="line">    str = str.replace(/\[em_([0-9]*)\]/g,<span class="string">'&lt;img src="face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">    <span class="built_in">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面着重介绍下在nodejs+express4中的应用：</p>
+<p>步骤如下：</p>
+<ul>
+<li><p>加入引用表情的span</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"send-out"</span>&gt;</div><div class="line">            &lt;span class=<span class="string">"emotion"</span> id=<span class="string">"emotion"</span>&gt;&lt;img class=<span class="string">"head_picture"</span> src=<span class="string">"/images/r-middle-pic07.png"</span>&gt;表情&lt;/span&gt;</div><div class="line">            &lt;input class=<span class="string">"send-text"</span> id=<span class="string">"Y_iSend_Input"</span> <span class="built_in">type</span>=<span class="string">"text"</span> maxlength=<span class="string">"100"</span> value=<span class="string">""</span>&gt;</div><div class="line">            &lt;input id=<span class="string">"Y_iSend_Bt"</span> class=<span class="string">"out_text"</span> onclick=<span class="string">"CHAT.submit();"</span> <span class="built_in">type</span>=<span class="string">"button"</span>  value=<span class="string">"发送"</span>/&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>加入头文件并调用jquery</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div><div class="line"> $(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line">                assign:<span class="string">'Y_iSend_Input'</span>, //给输入框赋值</div><div class="line">                path:<span class="string">'/face/'</span>    //表情图片存放的路径</div><div class="line">           &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用正则替换输入的[]表情</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">w.CHAT=&#123;</div><div class="line">replace_em: <span class="keyword">function</span> (str) &#123;</div><div class="line">            str = str.replace(/\&lt;/g, <span class="string">'&lt;;'</span>);</div><div class="line">            str = str.replace(/\&gt;/g, <span class="string">'&gt;;'</span>);</div><div class="line">            str = str.replace(/\n/g, <span class="string">'&lt;;br/&gt;;'</span>);</div><div class="line">            str = str.replace(/\[em_([0-9]*)\]/g, <span class="string">'&lt;img src="/face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">            <span class="built_in">return</span> str;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        //提交聊天消息内容</div><div class="line">        submit: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">            var str = $(<span class="string">"#Y_iSend_Input"</span>).val();</div><div class="line"></div><div class="line">            $(<span class="string">"#Y_iSend_Input"</span>).val(CHAT.replace_em(str));</div><div class="line"></div><div class="line">            var message_text = d.getElementById(<span class="string">"Y_iSend_Input"</span>).value;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/19/socket-framework/" itemprop="url">
                   Socket FrameWork
                 </a>
@@ -381,112 +519,6 @@
 <li><a href="https://github.com/M6Web/websocket-bench" title="websocket-bench" target="_blank" rel="external">websocket-bench</a></li>
 </ul>
 </blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/QQ表情插件/" itemprop="url">
-                  QQ表情插件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T22:54:33+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/17/QQ表情插件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/QQ表情插件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          &nbsp; | &nbsp;
-          <span id="/2016/09/17/QQ表情插件/"class="leancloud_visitors" data-flag-title="QQ表情插件">
-                   &nbsp;阅读次数
-                  </span>
-          
-
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##nodejs聊天室，浅析。</p>
 
           
         
