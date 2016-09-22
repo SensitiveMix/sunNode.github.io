@@ -295,7 +295,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T23:40:36+08:00" content="2016-09-22">
+            <time itemprop="dateCreated" datetime="2016-09-22T23:46:16+08:00" content="2016-09-22">
               2016-09-22
             </time>
           </span>
@@ -337,10 +337,9 @@
       
         
           
-            <p>##nodejs聊天室，浅析。</p>
-<h2 id="经典qq表情插件"><a href="#经典qq表情插件" class="headerlink" title="经典qq表情插件"></a>经典qq表情插件</h2><blockquote>
-<p>（html+nodejs应用）</p>
-<h3 id="由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法："><a href="#由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：" class="headerlink" title="由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法："></a>由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：</h3><p>HTML：</p>
+            <h2 id="经典qq表情插件"><a href="#经典qq表情插件" class="headerlink" title="经典qq表情插件"></a>经典qq表情插件</h2><blockquote>
+<p>（html+nodejs应用）<br>由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：</p>
+<p>HTML：</p>
 <ul>
 <li>首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件</li>
 </ul>
@@ -360,16 +359,17 @@
 <p>下面着重介绍下在nodejs+express4中的应用：</p>
 <p>步骤如下：</p>
 <ul>
-<li><p>加入引用表情的span</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"send-out"</span>&gt;</div><div class="line">            &lt;span class=<span class="string">"emotion"</span> id=<span class="string">"emotion"</span>&gt;&lt;img class=<span class="string">"head_picture"</span> src=<span class="string">"/images/r-middle-pic07.png"</span>&gt;表情&lt;/span&gt;</div><div class="line">            &lt;input class=<span class="string">"send-text"</span> id=<span class="string">"Y_iSend_Input"</span> <span class="built_in">type</span>=<span class="string">"text"</span> maxlength=<span class="string">"100"</span> value=<span class="string">""</span>&gt;</div><div class="line">            &lt;input id=<span class="string">"Y_iSend_Bt"</span> class=<span class="string">"out_text"</span> onclick=<span class="string">"CHAT.submit();"</span> <span class="built_in">type</span>=<span class="string">"button"</span>  value=<span class="string">"发送"</span>/&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>加入头文件并调用jquery</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div><div class="line"> $(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line">                assign:<span class="string">'Y_iSend_Input'</span>, //给输入框赋值</div><div class="line">                path:<span class="string">'/face/'</span>    //表情图片存放的路径</div><div class="line">           &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>用正则替换输入的[]表情</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">w.CHAT=&#123;</div><div class="line">replace_em: <span class="keyword">function</span> (str) &#123;</div><div class="line">            str = str.replace(/\&lt;/g, <span class="string">'&lt;;'</span>);</div><div class="line">            str = str.replace(/\&gt;/g, <span class="string">'&gt;;'</span>);</div><div class="line">            str = str.replace(/\n/g, <span class="string">'&lt;;br/&gt;;'</span>);</div><div class="line">            str = str.replace(/\[em_([0-9]*)\]/g, <span class="string">'&lt;img src="/face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">            <span class="built_in">return</span> str;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        //提交聊天消息内容</div><div class="line">        submit: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">            var str = $(<span class="string">"#Y_iSend_Input"</span>).val();</div><div class="line"></div><div class="line">            $(<span class="string">"#Y_iSend_Input"</span>).val(CHAT.replace_em(str));</div><div class="line"></div><div class="line">            var message_text = d.getElementById(<span class="string">"Y_iSend_Input"</span>).value;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>加入引用表情的span</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"send-out"</span>&gt;</div><div class="line">            &lt;span class=<span class="string">"emotion"</span> id=<span class="string">"emotion"</span>&gt;&lt;img class=<span class="string">"head_picture"</span> src=<span class="string">"/images/r-middle-pic07.png"</span>&gt;表情&lt;/span&gt;</div><div class="line">            &lt;input class=<span class="string">"send-text"</span> id=<span class="string">"Y_iSend_Input"</span> <span class="built_in">type</span>=<span class="string">"text"</span> maxlength=<span class="string">"100"</span> value=<span class="string">""</span>&gt;</div><div class="line">            &lt;input id=<span class="string">"Y_iSend_Bt"</span> class=<span class="string">"out_text"</span> onclick=<span class="string">"CHAT.submit();"</span> <span class="built_in">type</span>=<span class="string">"button"</span>  value=<span class="string">"发送"</span>/&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>加入头文件并调用jquery</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div><div class="line"> $(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line">                assign:<span class="string">'Y_iSend_Input'</span>, //给输入框赋值</div><div class="line">                path:<span class="string">'/face/'</span>    //表情图片存放的路径</div><div class="line">           &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>用正则替换输入的[]表情</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">w.CHAT=&#123;</div><div class="line">replace_em: <span class="keyword">function</span> (str) &#123;</div><div class="line">            str = str.replace(/\&lt;/g, <span class="string">'&lt;;'</span>);</div><div class="line">            str = str.replace(/\&gt;/g, <span class="string">'&gt;;'</span>);</div><div class="line">            str = str.replace(/\n/g, <span class="string">'&lt;;br/&gt;;'</span>);</div><div class="line">            str = str.replace(/\[em_([0-9]*)\]/g, <span class="string">'&lt;img src="/face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">            <span class="built_in">return</span> str;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        //提交聊天消息内容</div><div class="line">        submit: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">            var str = $(<span class="string">"#Y_iSend_Input"</span>).val();</div><div class="line"></div><div class="line">            $(<span class="string">"#Y_iSend_Input"</span>).val(CHAT.replace_em(str));</div><div class="line"></div><div class="line">            var message_text = d.getElementById(<span class="string">"Y_iSend_Input"</span>).value;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -712,7 +712,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
