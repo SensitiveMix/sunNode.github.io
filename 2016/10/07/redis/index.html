@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jquery node.js," />
+  <meta name="keywords" content="redis," />
 
 
 
@@ -84,37 +84,22 @@
 
 
 
-<meta name="description" content="经典qq表情插件
-（html+nodejs应用）由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：
-HTML：
-
-首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件
-
-
-12&amp;lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.m">
+<meta name="description" content="事务概述事务是并发控制的基本单位。所谓的事务，它是指一个操作序列，这些操作序列要不都执行，要么都不执行，它是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性。
+事务的提出主要是为了解决并发情况下保持数据一致性的问题
+特征事务具有以下4个特征，简称ACID:● Atomic（原子性）：事务中包含的操作被看做一个逻辑单元，这个逻辑单元中的操作要么全部成功，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QQ表情插件">
-<meta property="og:url" content="http://sunnode.github.io/2016/09/22/QQ表情插件/index.html">
+<meta property="og:title" content="redis 事务浅析">
+<meta property="og:url" content="http://sunnode.github.io/2016/10/07/redis/index.html">
 <meta property="og:site_name" content="Jack Sun's Blog">
-<meta property="og:description" content="经典qq表情插件
-（html+nodejs应用）由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：
-HTML：
-
-首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件
-
-
-12&amp;lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.m">
-<meta property="og:updated_time" content="2016-09-22T15:46:16.000Z">
+<meta property="og:description" content="事务概述事务是并发控制的基本单位。所谓的事务，它是指一个操作序列，这些操作序列要不都执行，要么都不执行，它是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性。
+事务的提出主要是为了解决并发情况下保持数据一致性的问题
+特征事务具有以下4个特征，简称ACID:● Atomic（原子性）：事务中包含的操作被看做一个逻辑单元，这个逻辑单元中的操作要么全部成功，">
+<meta property="og:updated_time" content="2016-10-07T15:10:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QQ表情插件">
-<meta name="twitter:description" content="经典qq表情插件
-（html+nodejs应用）由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：
-HTML：
-
-首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件
-
-
-12&amp;lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.7.2.m">
+<meta name="twitter:title" content="redis 事务浅析">
+<meta name="twitter:description" content="事务概述事务是并发控制的基本单位。所谓的事务，它是指一个操作序列，这些操作序列要不都执行，要么都不执行，它是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性。
+事务的提出主要是为了解决并发情况下保持数据一致性的问题
+特征事务具有以下4个特征，简称ACID:● Atomic（原子性）：事务中包含的操作被看做一个逻辑单元，这个逻辑单元中的操作要么全部成功，">
 
 
 
@@ -135,9 +120,9 @@ HTML：
 
 
 
-  <link rel="canonical" href="http://sunnode.github.io/2016/09/22/QQ表情插件/"/>
+  <link rel="canonical" href="http://sunnode.github.io/2016/10/07/redis/"/>
 
-  <title> QQ表情插件 | Jack Sun's Blog </title>
+  <title> redis 事务浅析 | Jack Sun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +285,7 @@ HTML：
             
             
               
-                QQ表情插件
+                redis 事务浅析
               
             
           </h1>
@@ -312,8 +297,8 @@ HTML：
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T23:46:16+08:00" content="2016-09-22">
-              2016-09-22
+            <time itemprop="dateCreated" datetime="2016-10-07T23:10:26+08:00" content="2016-10-07">
+              2016-10-07
             </time>
           </span>
 
@@ -323,8 +308,8 @@ HTML：
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/22/QQ表情插件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/QQ表情插件/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/redis/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,7 +319,7 @@ HTML：
 
           
           &nbsp; | &nbsp;
-          <span id="/2016/09/22/QQ表情插件/"class="leancloud_visitors" data-flag-title="QQ表情插件">
+          <span id="/2016/10/07/redis/"class="leancloud_visitors" data-flag-title="redis 事务浅析">
                    &nbsp;阅读次数
                   </span>
           
@@ -352,39 +337,63 @@ HTML：
       
 
       
-        <h2 id="经典qq表情插件"><a href="#经典qq表情插件" class="headerlink" title="经典qq表情插件"></a>经典qq表情插件</h2><blockquote>
-<p>（html+nodejs应用）<br>由于目前在接触聊天室项目，接到一个需求实现一个类似QQ表情。在网上找了一款jquery经典表情插件。下面介绍一个用法：</p>
-<p>HTML：</p>
+        <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>事务是并发控制的基本单位。所谓的事务，它是指一个操作序列，这些操作序列要不都执行，要么都不执行，它是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性。</p>
+<p>事务的提出主要是为了解决并发情况下保持数据一致性的问题</p>
+<h1 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h1><p>事务具有以下4个特征，简称ACID:<br>● Atomic（原子性）：事务中包含的操作被看做一个逻辑单元，这个逻辑单元中的操作要么全部成功，要么全部失败。<br>● Consistency（一致性）：只有合法的数据可以被写入数据库，否则事务应该将其回滚到最初状态。<br>● Isolation（隔离性）：事务允许多个用户对同一个数据进行并发访问，而不破坏数据的正确性和完整性。同时，并行事务的修改必须与其他并行事务的修改相互独立。<br>● Durability（持久性）：事务结束后，事务处理的结果必须能够得到固化。</p>
+<h2 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h2><p>概述</p>
+<p>Redis中的事务是一组命令的集合。事务同命令一样都是Redis的最小执行单位，一个事务中的命令要么都执行，要么都不执行。</p>
+<p>事务的原理是先将一个属于事务的命令发送给Redis，然后再让Redis依次执行这些命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">redis&gt; MULTI</div><div class="line">OK</div><div class="line">redis&gt; <span class="built_in">set</span> name Yann</div><div class="line">QUEUED</div><div class="line">redis&gt; append name yezixin</div><div class="line">QUEUED</div><div class="line">redis&gt; EXEC</div><div class="line">1) OK</div><div class="line">2) (<span class="built_in">integer</span>) 11</div></pre></td></tr></table></figure></p>
+<p>首先使用MULTI命令告诉Redis下面命令将是一个事务，Redis应答OK。 发送set和append命令之后，Redis返回QUEUED表示命令已经进入等待执行的事务队列中了。最后使用EXEC命令来让等待执行的事务队列中的所有命令按照发送顺序依次发送。返回值是这些命令的返回值组成的列表。</p>
+<p>错误处理</p>
+<p>● 语法错误，指命令不存在或者命令参数个数不对。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">redis&gt; MULTI</div><div class="line">OK</div><div class="line">redis&gt; <span class="built_in">set</span> name</div><div class="line">(error) ERR wrong number of arguments <span class="keyword">for</span> <span class="string">'set'</span> <span class="built_in">command</span></div><div class="line">redis&gt; errorset name</div><div class="line">(error) ERR unknown <span class="built_in">command</span> <span class="string">'errorset'</span></div><div class="line">redis&gt; <span class="built_in">exec</span></div><div class="line">(error) EXECABORT Transaction discarded because of previous errors.</div></pre></td></tr></table></figure>
+<p>只要Redis事务中存在语法错误，该事务将不会执行。</p>
+<p>● 运行错误，指在命令执行时出现的错误，比如使用散列类型的命令操作字符串类型的键，这种错误在实际执行之前Redis是无法发现的。那么当出现运行错误时Redis是怎么处理的呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">redis&gt; MULTI</div><div class="line">OK</div><div class="line">redis&gt; hset name first-name ye</div><div class="line">QUEUED</div><div class="line">redis&gt; <span class="built_in">set</span> name yezixin</div><div class="line">QUEUED</div><div class="line">redis&gt; get name</div><div class="line">QUEUED</div><div class="line">redis&gt; <span class="built_in">exec</span></div><div class="line">1) (error) WRONGTYPE Operation against a key holding the wrong kind of value</div><div class="line">2) OK</div><div class="line">3) <span class="string">"yezixin"</span></div></pre></td></tr></table></figure>
+<p>缺陷</p>
+<p>● 遇到有查询的命令穿插在事务中，并不会返回结果</p>
+<p>有上面的分析我们知道，Redis事务中的命令是进入了等待执行的事务队列中，在事务执行之前并不会返回结果，只是返回QUEUED。</p>
+<p>这样会导致什么问题？ 如果后序的更新操作需要依赖于前面的查询指令，那么Redis事务便无法有效的完成任务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">redis&gt; MULTI</div><div class="line">OK</div><div class="line">redis&gt; get age</div><div class="line">QUEUED</div><div class="line">业务逻辑...</div><div class="line">redis&gt; <span class="built_in">set</span> age ccc</div><div class="line">QUEUED</div><div class="line">redis&gt; <span class="built_in">exec</span></div><div class="line">1) <span class="string">"18"</span></div><div class="line">2) OK</div></pre></td></tr></table></figure>
+<p>● 事务中的每条命令都与redis服务器进行了一次网络交互</p>
+<p>Redis事务指定开始后，执行一个命令都是都返回QUEUED, 那么这个入队操作是在客户端实现还是Redis服务端实现的？</p>
+<p>在Redis.c中这么一段源码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">int processCommand(redisClient *c) &#123;</div><div class="line">    /* Exec the <span class="built_in">command</span> */</div><div class="line">    <span class="keyword">if</span> (c-&gt;flags &amp; REDIS_MULTI &amp;&amp;</div><div class="line">        c-&gt;cmd-&gt;proc != <span class="built_in">exec</span>Command &amp;&amp; c-&gt;cmd-&gt;proc != discardCommand &amp;&amp;</div><div class="line">        c-&gt;cmd-&gt;proc != multiCommand &amp;&amp; c-&gt;cmd-&gt;proc != watchCommand)</div><div class="line">    &#123;</div><div class="line">        queueMultiCommand(c); // 将事务中的命令都放入到队列中，然后返回<span class="string">"QUEUED"</span></div><div class="line">        addReply(c,shared.queued);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (server.vm_enabled &amp;&amp; server.vm_max_threads &gt; 0 &amp;&amp;</div><div class="line">            blockClientOnSwappedKeys(c)) <span class="built_in">return</span> REDIS_ERR;</div><div class="line">        //调用该命令函数来处理命令</div><div class="line">        call(c);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> REDIS_OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由此可知，入队操作是在服务端执行的，这意味着一个事务需要客户端和服务端执行多次网络交互，明明是一个事务中的n条指令却需要通过多次网络交互，有些浪费。</p>
+<p>事务特征</p>
+<p>Redis事务只保证了一致性和隔离性 , 这倒也不能说是Redis的缺陷，Redis这么做是为了保持简单</p>
+<p>原子性</p>
+<p>从上面的Redis对事务的运行错误的处理我们知道，Redis事务在执行过程中遇到错误，并不会回滚，而是继续执行命令, 违反了原子性。</p>
+<p>Redis的事务并没有关系数据库事务提供的回滚功能, 不过这也使得Redis在事务上可以保持简洁和快速。</p>
+<p>事务回滚是指将一个事务已经完成的对数据库的修改操作撤销。</p>
+<p>持久性</p>
+<p>Redis事务不过是用队列包裹起了一组 Redis 命令，并没有提供任何额外的持久性功能，所以事务的持久性由 Redis 所使用的持久化模式决定：</p>
 <ul>
-<li>首先在html页面的head中引入jQuery库文件和QQ表情插件jquery.qqFace.js文件</li>
+<li>在单纯的内存模式下，事务肯定是不持久的。</li>
+<li>在 RDB 模式下，服务器可能在事务执行之后、RDB 文件更新之前的这段时间失败，所以 RDB 模式下的 Redis 事务也是不持久的。</li>
+<li>在 AOF 的“总是 SYNC ”模式下，事务的每条命令在执行成功之后，都会立即调用 fsync 或 fdatasync 将事务数据写入到 AOF 文件。但是，这种保存是由后台线程进行的，主线程不会阻塞直到保存成功，所以从命令执行成功到数据保存到硬盘之间，还是有一段非常小的间隔，所以这种模式下的事务也是不持久的。</li>
+<li>其他 AOF 模式也和“总是 SYNC ”模式类似，所以它们都是不持久的。<br>隔离性和一致性</li>
 </ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery-1.7.2.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>然后在body中加入以下html代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"show"</span>&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=<span class="string">"comment"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"com_form"</span>&gt;</div><div class="line">        &lt;textarea class=<span class="string">"input"</span> id=<span class="string">"saytext"</span> name=<span class="string">"saytext"</span>&gt;&lt;/textarea&gt;</div><div class="line">        &lt;p&gt;&lt;span class=<span class="string">"emotion"</span>&gt;表情&lt;/span&gt;&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">"sub_btn"</span> value=<span class="string">"提交"</span>&gt;&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>Redis事务在执行的过程中，不会处理其它命令，而是等所有命令都执行完后，再处理其它命令（满足隔离性）<br>Redis事务在执行过程中发生错误或进程被终结，都能保证数据的一致性；</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>● WATCH命令实现更新操作中的查询</p>
+<p>如果不用事务，那么我们更新键值实现增1的流程是这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">redis&gt; get age</div><div class="line"><span class="string">"18"</span></div><div class="line">redis&gt; <span class="built_in">set</span> age 19</div><div class="line">OK</div></pre></td></tr></table></figure></p>
+<p>但是上述的做法会出现竞态条件, 简单讲就是在获得键值18后，age有可能会被其他客户端修改，导致数据出现不一致性。</p>
 <blockquote>
-<p>CSS：<br>我们用CSS来美化页面，关键是表情按钮图片span.emotion的鼠标滑上与移开效果，以及调用表情插件后，显示的表情.qqFace面板效果，请看代码:</p>
+<p>竞态条件（race condition）是一个在设备或者系统试图同时执行两个操作的时候出现的不希望的状况， 但是由于设备和系统的自然特性，为了正确地执行，操作必须按照合适顺序进行。　</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.comment&#123;width:680px; margin:20px auto; position:relative&#125;</div><div class="line">.comment h3&#123;height:28px; line-height:28px&#125;</div><div class="line">.com_form&#123;width:100%; position:relative&#125;</div><div class="line">.input&#123;width:99%; height:60px; border:1px solid <span class="comment">#ccc&#125;</span></div><div class="line">.com_form p&#123;height:28px; line-height:28px; position:relative&#125;</div><div class="line">span.emotion&#123;width:42px; height:20px; background:url(icon.gif) no-repeat 2px 2px;</div><div class="line">padding-left:20px; cursor:pointer&#125;</div><div class="line">span.emotion:hover&#123;background-position:2px -28px&#125;</div><div class="line">.qqFace&#123;margin-top:4px;background:<span class="comment">#fff;padding:2px;border:1px #dfe6f6 solid;&#125;</span></div><div class="line">.qqFace table td&#123;padding:0px;&#125;</div><div class="line">.qqFace table td img&#123;cursor:pointer;border:1px <span class="comment">#fff solid;&#125;</span></div><div class="line">.qqFace table td img:hover&#123;border:1px <span class="comment">#0066cc solid;&#125;</span></div><div class="line"><span class="comment">#show&#123;width:680px; margin:20px auto&#125;</span></div></pre></td></tr></table></figure>
+<p>如果我们用事务来做呢？但是事务中的每个命令的执行结果都是最后一起返回的，所以无法将前一条命令的结果作为下命令的参数，即在执行SET命令无法获得GET命令的返回值。</p>
+<p>为了实现增1操作，我们需要能够获得键值后保证该键值不被其他客户端修改，直到操作执行完成之后才能修改该键值，这样也能防止竞态条件。</p>
 <blockquote>
-<p>jquery:<br>当我们点击页面输入框下方那个笑脸时，触发调用qqface表情插件，简单几行就搞定。</p>
+<p>WATCH 命令可以监控一个或多个键，一旦其中有一个键被修改（或删除),之后的事务就不会执行。监控 一直持续到EXEC命令。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line"></div><div class="line">        assign:<span class="string">'saytext'</span>, //给输入框赋值</div><div class="line">        path:<span class="string">'face/'</span>    //表情图片存放的路径</div><div class="line">    &#125;);</div><div class="line">    ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>当选择表情图片后，输入框中会插入一段如[em_5]之类的代码，代表插入的表情图片，实际应用中，点提交按钮后应该将这段表情代码连同其他内容插入到数据表中。而在页面显示的时候，我们应该将表情代码替换成真正的图片显示在页面上。下面的代码是插入表情图片后，点击提交按钮，使用javascript自定义函数将表情代码替换并显示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    ...</div><div class="line">    $(<span class="string">".sub_btn"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        var str = $(<span class="string">"#saytext"</span>).val();</div><div class="line">        $(<span class="string">"#show"</span>).html(replace_em(str));</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="keyword">function</span> replace_em(str)&#123;</div><div class="line">    str = str.replace(/\&lt;/g,<span class="string">'&lt;；'</span>);</div><div class="line">    str = str.replace(/\&gt;/g,<span class="string">'&gt;；'</span>);</div><div class="line">    str = str.replace(/\n/g,<span class="string">'&lt;；br/&gt;；'</span>);</div><div class="line">    str = str.replace(/\[em_([0-9]*)\]/g,<span class="string">'&lt;img src="face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">    <span class="built_in">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>下面着重介绍下在nodejs+express4中的应用：</p>
-<p>步骤如下：</p>
-<ul>
-<li>加入引用表情的span</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"send-out"</span>&gt;</div><div class="line">            &lt;span class=<span class="string">"emotion"</span> id=<span class="string">"emotion"</span>&gt;&lt;img class=<span class="string">"head_picture"</span> src=<span class="string">"/images/r-middle-pic07.png"</span>&gt;表情&lt;/span&gt;</div><div class="line">            &lt;input class=<span class="string">"send-text"</span> id=<span class="string">"Y_iSend_Input"</span> <span class="built_in">type</span>=<span class="string">"text"</span> maxlength=<span class="string">"100"</span> value=<span class="string">""</span>&gt;</div><div class="line">            &lt;input id=<span class="string">"Y_iSend_Bt"</span> class=<span class="string">"out_text"</span> onclick=<span class="string">"CHAT.submit();"</span> <span class="built_in">type</span>=<span class="string">"button"</span>  value=<span class="string">"发送"</span>/&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>加入头文件并调用jquery</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/jquery.qqFace.js"</span>&gt;&lt;/script&gt;</div><div class="line"> $(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            $(<span class="string">'.emotion'</span>).qqFace(&#123;</div><div class="line">                assign:<span class="string">'Y_iSend_Input'</span>, //给输入框赋值</div><div class="line">                path:<span class="string">'/face/'</span>    //表情图片存放的路径</div><div class="line">           &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<ul>
-<li>用正则替换输入的[]表情</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">w.CHAT=&#123;</div><div class="line">replace_em: <span class="keyword">function</span> (str) &#123;</div><div class="line">            str = str.replace(/\&lt;/g, <span class="string">'&lt;;'</span>);</div><div class="line">            str = str.replace(/\&gt;/g, <span class="string">'&gt;;'</span>);</div><div class="line">            str = str.replace(/\n/g, <span class="string">'&lt;;br/&gt;;'</span>);</div><div class="line">            str = str.replace(/\[em_([0-9]*)\]/g, <span class="string">'&lt;img src="/face/$1.gif" border="0" /&gt;'</span>);</div><div class="line">            <span class="built_in">return</span> str;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        //提交聊天消息内容</div><div class="line">        submit: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">            var str = $(<span class="string">"#Y_iSend_Input"</span>).val();</div><div class="line"></div><div class="line">            $(<span class="string">"#Y_iSend_Input"</span>).val(CHAT.replace_em(str));</div><div class="line"></div><div class="line">            var message_text = d.getElementById(<span class="string">"Y_iSend_Input"</span>).value;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">redis&gt; watch age</div><div class="line">OK</div><div class="line">redis&gt; <span class="built_in">set</span> age 19</div><div class="line">OK</div><div class="line">redis&gt; MULTI</div><div class="line">OK</div><div class="line">redis&gt; <span class="built_in">set</span> age 20</div><div class="line">QUEUED</div><div class="line">redis&gt; <span class="built_in">exec</span></div><div class="line">(nil)</div><div class="line">redis&gt; get age</div><div class="line"><span class="string">"19"</span></div></pre></td></tr></table></figure>
+<p>exec执行结果为nil, 说明事务执行失败，因为watch age之后修改了age的键值导致后面的事务执行失败</p>
+<blockquote>
+<p>WATCH命令的作用只是监控键值被修改后阻止后一个事务执行，并不能阻止其他客户端不修改这一键&gt;  值。所以我们需要再EXEC执行之后重新执行整个流程</p>
+</blockquote>
+<p>所以我们就可以这样来处理：将查询业务逻辑提前，所有的Redis查询逻辑放在事务之外， 并对需要进行更新的键值执行WATCH监控， 当事务执行失败重新执行这个流程。</p>
+<blockquote>
+<p>我们可以通过UNWATCH 命令取消WATCH对所有键的监控, 来保证下一个事务执行不会受到影响。</p>
+</blockquote>
 
       
     </div>
@@ -407,7 +416,7 @@ HTML：
       
         <div class="post-tags">
           
-            <a href="/tags/jquery-node-js/" rel="tag">#jquery node.js</a>
+            <a href="/tags/redis/" rel="tag">#redis</a>
           
         </div>
       
@@ -416,17 +425,13 @@ HTML：
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/19/socket-framework/" rel="next" title="Socket FrameWork">
-                <i class="fa fa-chevron-left"></i> Socket FrameWork
+              <a href="/2016/10/01/docker/" rel="next" title="docker">
+                <i class="fa fa-chevron-left"></i> docker
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/01/docker/" rel="prev" title="docker">
-                docker <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -478,8 +483,8 @@ HTML：
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/22/QQ表情插件/"
-           data-title="QQ表情插件" data-url="http://sunnode.github.io/2016/09/22/QQ表情插件/">
+      <div class="ds-thread" data-thread-key="2016/10/07/redis/"
+           data-title="redis 事务浅析" data-url="http://sunnode.github.io/2016/10/07/redis/">
       </div>
     
   </div>
@@ -563,7 +568,7 @@ HTML：
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典qq表情插件"><span class="nav-number">1.</span> <span class="nav-text">经典qq表情插件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">概述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特征"><span class="nav-number">2.</span> <span class="nav-text">特征</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis事务"><span class="nav-number">2.1.</span> <span class="nav-text">Redis事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
